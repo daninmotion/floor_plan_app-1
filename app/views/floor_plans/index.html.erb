@@ -16,9 +16,9 @@
   <tbody>
     <% @floor_plans.each do |floor_plan| %>
       <tr>
-        <td><%= floor_plan.user_id %></td>
+        <td><%= floor_plan.owner_name %></td>
         <td><%= floor_plan.title %></td>
-        <td><%= floor_plan.image %></td>
+        <td><%= link_to image_tag(floor_plan.image), floor_plan, class: 'image-link' %></td>
         <td><%= link_to 'Show', floor_plan %></td>
         <td><%= link_to 'Edit', edit_floor_plan_path(floor_plan) %></td>
         <td><%= link_to 'Destroy', floor_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

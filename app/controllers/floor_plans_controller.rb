@@ -1,4 +1,5 @@
 class FloorPlansController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_floor_plan, only: [:show, :edit, :update, :destroy]
 
   # GET /floor_plans
@@ -24,7 +25,7 @@ class FloorPlansController < ApplicationController
   # POST /floor_plans
   # POST /floor_plans.json
   def create
-    @floor_plan = FloorPlan.new(floor_plan_params)
+    @floor_plan = current_user.floor_plans.build(floor_plan_params)
 
     respond_to do |format|
       if @floor_plan.save
@@ -64,7 +65,8 @@ class FloorPlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_floor_plan
-      @floor_plan = FloorPlan.find(params[:id])
+      floor_plan_collection = current_user ? current_user.floor_plans : FloorPlan
+      @floor_plan = floor_plan_collection.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

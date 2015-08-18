@@ -1,9 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @floor_plan.user_id %>
-</p>
+<%= link_to 'Edit', edit_floor_plan_path(@floor_plan) %> |
+<%= link_to 'Back', floor_plans_path %>
 
 <p>
   <strong>Title:</strong>
@@ -12,8 +8,5 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @floor_plan.image %>
+  <%= image_tag @floor_plan.image %>
 </p>
-
-<%= link_to 'Edit', edit_floor_plan_path(@floor_plan) %> |
-<%= link_to 'Back', floor_plans_path %>
