@@ -1,0 +1,29 @@
+<%= form_for(@floor_plan) do |f| %>
+  <% if @floor_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@floor_plan.errors.count, "error") %> prohibited this floor_plan from being saved:</h2>
+
+      <ul>
+      <% @floor_plan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

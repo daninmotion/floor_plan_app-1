@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :floor_plans
+  resources :floor_plans
   devise_for :users
   root 'floor_plans#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,1 +1,34 @@
 <h1>Welcome to Floor Plan App</h1>
+<p>
+  <%= link_to 'Add a floor plan', new_floor_plan_path %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @floor_plans.each do |floor_plan| %>
+      <tr>
+        <td><%= floor_plan.user_id %></td>
+        <td><%= floor_plan.title %></td>
+        <td><%= floor_plan.image %></td>
+        <td><%= link_to 'Show', floor_plan %></td>
+        <td><%= link_to 'Edit', edit_floor_plan_path(floor_plan) %></td>
+        <td><%= link_to 'Destroy', floor_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p>
+  <%= link_to 'Add a floor plan', new_floor_plan_path %>
+</p>
