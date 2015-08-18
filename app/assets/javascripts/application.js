@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('.color-controls .palette tr td').click(function(event) {
+    $('.color-controls .current').css('background-color', $(event.target).closest('td').css('background-color'));
+  });
+
+  $('.floor-plan-show svg').click(function(event) {
+    var element = $(event.target);
+    element.css('fill', $('.color-controls .current').css('background-color'));
+  });
+});
