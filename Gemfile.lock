@@ -55,6 +55,8 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
+    dehumanize (1.0.0)
+      activesupport (>= 3.0.0)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -160,6 +162,7 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
+  dehumanize
   devise
   jbuilder (~> 2.0)
   jquery-rails

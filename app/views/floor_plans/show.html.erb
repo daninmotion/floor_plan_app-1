@@ -1,12 +1,14 @@
 <%= link_to 'Edit', edit_floor_plan_path(@floor_plan) %> |
 <%= link_to 'Back', floor_plans_path %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @floor_plan.title %>
-</p>
+<div class="floor-plan-show">
+  <%= render 'controls' %>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @floor_plan.image %>
-</p>
+  <p class="floor-plan-title">
+    <%= @floor_plan.title %>
+  </p>
+
+  <p class="floor-plan-image">
+    <%= raw @floor_plan.image.file.read %>
+  </p>
+</div>

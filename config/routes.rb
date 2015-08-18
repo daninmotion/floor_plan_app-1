@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  resources :floor_plans
-  resources :floor_plans
+  resources :floor_plans do
+    member do
+      get :download
+    end
+  end
   devise_for :users
   root 'floor_plans#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

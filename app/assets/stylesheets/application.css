@@ -42,3 +42,41 @@ a.image-link:hover:after {
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.floor-plan-show {
+  position: relative;
+  width: 68%;
+  margin: 0 auto;
+}
+
+.floor-plan-show .floor-plan-title, .floor-plan-show .floor-plan-image {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.floor-plan-show .floor-plan-image svg {
+  width: 100%;
+}
+
+.floor-plan-show .color-controls {
+  position: absolute;
+  top: 0;
+  left: -130px;
+  width: 110px;
+  text-align: center;
+}
+
+.floor-plan-show .color-controls table {
+  border-collapse: collapse;
+  margin: 0 auto 5px auto;
+  border: 1px solid #999;
+}
+
+.floor-plan-show .color-controls table.palette tr td, .floor-plan-show .color-controls table.palette tr th  {
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  margin: 0;
+}

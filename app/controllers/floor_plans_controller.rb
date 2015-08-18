@@ -1,6 +1,6 @@
 class FloorPlansController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_floor_plan, only: [:show, :edit, :update, :destroy]
+  before_action :set_floor_plan, only: [:show, :download, :edit, :update, :destroy]
 
   # GET /floor_plans
   # GET /floor_plans.json
@@ -11,6 +11,11 @@ class FloorPlansController < ApplicationController
   # GET /floor_plans/1
   # GET /floor_plans/1.json
   def show
+  end
+
+  # GET /floor_plans/1/download
+  def download
+    send_data @floor_plan.image.file.read, filename: @floor_plan.title.dehumanize + ".svg", type: 'image/svg+xml', disposition: 'attachment', encoding: 'utf8'
   end
 
   # GET /floor_plans/new
