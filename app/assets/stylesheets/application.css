@@ -80,3 +80,19 @@ a.image-link:hover:after {
   padding: 0;
   margin: 0;
 }
+
+a.download {
+  display: block;
+  width: 88px;
+  padding: 5px;
+  background-color: grey;
+  color: white;
+  text-decoration: initial;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+}
+
+a.download:hover {
+  background-color: black;
+}

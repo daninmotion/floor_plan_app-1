@@ -8,7 +8,7 @@
     <%= @floor_plan.title %>
   </p>
 
-  <p class="floor-plan-image">
+  <p class="floor-plan-image" data-file-name="<%= @floor_plan.title.dehumanize %>">
     <%= raw @floor_plan.image.file.read %>
   </p>
 </div>

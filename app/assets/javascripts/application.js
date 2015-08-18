@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require FileSaver
 //= require turbolinks
 //= require_tree .
 
-$(function() {
+var wireEvents = function() {
   $('.color-controls .palette tr td').click(function(event) {
     $('.color-controls .current').css('background-color', $(event.target).closest('td').css('background-color'));
   });
@@ -24,4 +25,13 @@ $(function() {
     var element = $(event.target);
     element.css('fill', $('.color-controls .current').css('background-color'));
   });
-});
+
+  $('a.download').click(function(event) {
+    var svgContent = new Blob([$('.floor-plan-show svg').parent().html()], {type: 'image/svg+xml'});
+    var title = $('.floor-plan-image').data('file-name');
+    saveAs(svgContent, title + '.svg')
+    return false;
+  });
+};
+
+$(document).on('page:change', wireEvents);
