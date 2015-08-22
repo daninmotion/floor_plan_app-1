@@ -15,7 +15,10 @@ class FloorPlansController < ApplicationController
 
   # GET /floor_plans/1/download
   def download
-    send_data params[:image] || @floor_plan.image.file.read, filename: @floor_plan.title.dehumanize + ".svg", type: 'image/svg+xml', disposition: 'attachment', encoding: 'utf8'
+    # send_data params[:image] || @floor_plan.image.file.read, filename: @floor_plan.title.dehumanize + ".svg", type: 'image/svg+xml', disposition: 'attachment', encoding: 'utf8'
+    file_path = @floor_plan.image.file.path
+    file_name = @floor_plan.title.dehumanize + ".svg"
+    send_file file_path, filename: file_name, type: 'image/svg+xml', disposition: 'attachment'
   end
 
   # GET /floor_plans/new

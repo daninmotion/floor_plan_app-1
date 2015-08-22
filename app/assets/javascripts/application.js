@@ -26,7 +26,7 @@ var wireEvents = function() {
     element.css('fill', $('.color-controls .current').css('background-color'));
   });
 
-  $('a.download').click(function(event) {
+  $('a.action-download').click(function(event) {
     var svgContent = new Blob([$('.floor-plan-show svg').parent().html()], {type: 'image/svg+xml'});
     var title = $('.floor-plan-image').data('file-name');
     saveAs(svgContent, title + '.svg')
