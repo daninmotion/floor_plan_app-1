@@ -1,4 +1,6 @@
-<%= link_to 'Edit', edit_floor_plan_path(@floor_plan) %> |
+<% if policy(@floor_plan).edit? %>
+  <%= link_to 'Edit', edit_floor_plan_path(@floor_plan) %> |
+<% end %>
 <%= link_to 'Back', floor_plans_path %>
 
 <div class="floor-plan-show">

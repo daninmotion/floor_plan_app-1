@@ -19,9 +19,9 @@
         <td><%= floor_plan.owner_name %></td>
         <td><%= floor_plan.title %></td>
         <td><%= link_to image_tag(floor_plan.image), floor_plan, class: 'image-link' %></td>
-        <td><%= link_to 'Show', floor_plan %></td>
-        <td><%= link_to 'Edit', edit_floor_plan_path(floor_plan) %></td>
-        <td><%= link_to 'Destroy', floor_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', floor_plan if policy(floor_plan).show? %></td>
+        <td><%= link_to 'Edit', edit_floor_plan_path(floor_plan) if policy(floor_plan).edit? %></td>
+        <td><%= link_to 'Destroy', floor_plan, method: :delete, data: { confirm: 'Are you sure?' } if policy(floor_plan).destroy? %></td>
       </tr>
     <% end %>
   </tbody>

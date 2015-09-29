@@ -1,11 +1,13 @@
 class FloorPlansController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_floor_plan, only: [:show, :download, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :download]
+  before_action :set_and_authorize_floor_plan, only: [:show, :download, :edit, :update, :destroy]
+  skip_after_action :verify_authorized, only: [:new, :create] #handled by authentication
 
   # GET /floor_plans
   # GET /floor_plans.json
   def index
     @floor_plans = FloorPlan.all
+    authorize @floor_plans
   end
 
   # GET /floor_plans/1
@@ -34,7 +36,6 @@ class FloorPlansController < ApplicationController
   # POST /floor_plans.json
   def create
     @floor_plan = current_user.floor_plans.build(floor_plan_params)
-
     respond_to do |format|
       if @floor_plan.save
         format.html { redirect_to @floor_plan, notice: 'Floor plan was successfully created.' }
@@ -72,9 +73,10 @@ class FloorPlansController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_floor_plan
-      floor_plan_collection = current_user ? current_user.floor_plans : FloorPlan
-      @floor_plan = floor_plan_collection.find(params[:id])
+    def set_and_authorize_floor_plan
+      @floor_plan = FloorPlan.find_by_id(params[:id])
+      authorize @floor_plan
+      true
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
