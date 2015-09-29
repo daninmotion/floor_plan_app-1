@@ -7,6 +7,8 @@ class FloorPlan < ActiveRecord::Base
   validates :title, presence: true
   validates :image, presence: true
 
+  has_paper_trail
+
   def owner_name
     user.email.split('@')[0].split(/[._-]/).map(&:capitalize).join(' ')
   end
