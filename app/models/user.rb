@@ -4,5 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :floor_plans
+  has_many :floor_plans, dependent: :destroy
+
+  has_paper_trail
+  
 end
