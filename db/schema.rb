@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20151002163101) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "video"
   end
 
   create_table "users", force: :cascade do |t|
